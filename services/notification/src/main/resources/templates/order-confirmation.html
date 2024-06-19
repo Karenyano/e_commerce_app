@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #343a40;
+        }
+        p {
+            color: #6c757d;
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .details p {
+            font-weight: bold;
+            color: #343a40;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #adb5bd;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Order Confirmation</h1>
+    <p>Dear <span th:text="${customerName}"></span>,</p>
+    <p>Thank you for your order!</p>
+    <div class="details">
+        <p>Order Reference: <span th:text="${orderReference}"></span></p>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${productName}"></td>
+            <td th:text="${quantity}"></td>
+            <td th:text="${price}"></td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <div class="footer">
+        <p>Total Amount: $<span th:text="${totalAmount}"></span></p>
+        <p>This is an automatic email, please do not reply to this message.</p>
+    </div>
+</div>
+</body>
+</html>
